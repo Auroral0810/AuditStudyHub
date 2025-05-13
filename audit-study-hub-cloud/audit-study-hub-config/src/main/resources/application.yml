@@ -32,11 +32,15 @@ management:
   endpoint:
     health:
       show-details: always
+    prometheus:
+      enabled: true
   metrics:
     export:
       simple:
         enabled: false
+      prometheus:
+        enabled: true
     enable:
-      jvm: false
-      process: false
-      system: false
+      jvm: true
+      process: true
+      system: true

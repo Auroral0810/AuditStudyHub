@@ -53,6 +53,8 @@ management:
   endpoint:
     health:
       show-details: always
+    prometheus:
+      enabled: true
     bus-refresh:
       enabled: true
     bus-env:
@@ -60,9 +62,8 @@ management:
   metrics:
     tags:
       application: ${spring.application.name}
-  prometheus:
-    metrics:
-      export:
+    export:
+      prometheus:
         enabled: true
 
 # Spring Boot Admin客户端配置

@@ -1,6 +1,5 @@
 ![Header](./images/github-header-image.png)
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&width=600&lines=📚+Empowering+Learning,+Connecting+Knowledge.;📚+赋能学习,+链接知识,+共创未来)](https://git.io/typing-svg)
-[English Documentation](./README_EN.md) | [中文文档](./README.md)
 
 ![审学汇](https://img.shields.io/badge/AuditStudyHub-v1.0.0-blue)
 ![Java](https://img.shields.io/badge/Java-17-orange)
@@ -17,9 +16,9 @@
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 ![Email](https://img.shields.io/badge/Email-15968588744%40163.com-red)
 
-## 📚 项目概述
+[English Documentation](./README_EN.md) | [中文文档](./README.md)
 
-🚀 审学汇：基于微服务架构的高校资源共享平台，融合AI搜索与智能推荐，轻松获取、分享和管理学习资源，打造高效校园知识生态系统。
+## 📚 项目概述
 
 审学汇是一个专为高校学生设计的资源共享平台，旨在解决学生在学习过程中获取专业资料和教学资源的痛点。平台采用微服务架构，前后端分离设计，融合了现代化的云原生技术栈，提供了丰富的资源管理和搜索功能。
 
@@ -71,6 +70,7 @@
 | Nacos                | 2.2.0      | 服务发现和配置管理 |
 | Docker               | 20.10+     | 容器化部署         |
 | Prometheus + Grafana | -          | 监控可视化         |
+| Exporters            | -          | 指标收集器         |
 
 ### 前端技术栈
 
@@ -354,6 +354,58 @@ npm run dev
 
 更详细的部署说明请参考 `audit-deployment/使用说明.md` 文件。
 
+### 7. 监控系统配置
+
+系统自动配置了完整的监控体系，包括Prometheus、Grafana和多个指标导出器：
+
+#### 监控组件：
+
+- **Prometheus**：时间序列数据库和监控系统
+  - 访问地址：http://localhost:9090
+  - 配置文件：`prometheus.yml`
+
+- **Grafana**：可视化监控仪表盘
+  - 访问地址：http://localhost:13000 (用户名/密码: admin/admin)
+  - 初次登录后，添加Prometheus数据源并导入模板仪表盘
+
+#### 指标导出器：
+
+- **MySQL Exporter**：MySQL数据库指标收集
+  - 端口：9104
+  - 目标：mysql:3306
+
+- **Redis Exporter**：Redis缓存指标收集
+  - 端口：9121
+  - 目标：redis:6379
+
+- **Elasticsearch Exporter**：Elasticsearch搜索引擎指标收集
+  - 端口：9114
+  - 目标：elasticsearch:9200
+
+- **RabbitMQ Exporter**：RabbitMQ消息队列指标收集
+  - 端口：9419
+  - 目标：rabbitmq:15672
+
+- **Spring Boot Actuator**：Java应用指标收集
+  - 路径：/actuator/prometheus
+  - 目标：所有Spring Boot微服务
+
+#### 配置自定义仪表盘：
+
+1. 登录Grafana (http://localhost:13000)
+2. 配置Prometheus数据源：
+   - 配置 -> 数据源 -> 添加数据源
+   - 选择Prometheus，URL设置为http://prometheus:9090
+   - 点击"保存并测试"
+3. 导入示例仪表盘：
+   - 点击"+"按钮 -> 导入
+   - 可使用以下仪表盘ID：
+     - MySQL: 7362
+     - Redis: 763
+     - Elasticsearch: 266
+     - RabbitMQ: 10991
+     - JVM: 4701
+
 ## 📋 使用指南
 
 ### 访问地址
@@ -408,47 +460,11 @@ npm run dev
 3. 提交PR请求并通过代码审查
 4. 合并到主分支并自动部署
 
-## 📋 待办事项
-
-以下是我们正在计划的功能和改进：
-
-- [ ] **管理员后台功能完善**
-  - 增强资源审核流程
-  - 完善用户行为分析模块
-  - 添加更多数据统计维度
-
-- [ ] **使用文档完善**
-  - 编写详细的用户操作手册
-  - 完善API文档
-  - 添加常见问题解答(FAQ)
-
-- [ ] **推荐算法增强**
-  - 实现基于用户行为的个性化推荐
-  - 添加协同过滤算法
-  - 接入大语言模型提升推荐准确性
-
-- [ ] **国际化支持**
-  - 添加英文界面
-  - 支持多语言切换
-  - 优化国际化资源展示
-
-- [ ] **数据库优化**
-  - 优化表结构设计
-  - 增加分库分表策略
-  - 完善数据备份恢复机制
-
-- [ ] **性能优化**
-  - 优化前端加载速度
-  - 增强缓存策略
-  - 提升搜索引擎性能
-
-我们欢迎各类贡献！如果您对以上任何一项感兴趣，请参考下方贡献指南参与项目开发。
-
 ## 👨‍💻 团队与贡献
 
 ### 核心团队
 
-- **俞云烽** - 项目负责人 & 全栈开发
+- **Auroral** - 项目负责人 & 全栈开发
 
 ### 贡献指南
 

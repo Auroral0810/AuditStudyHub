@@ -1,6 +1,5 @@
 ![Header](./images/github-header-image.png)
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&width=600&lines=📚+Empowering+Learning,+Connecting+Knowledge.;📚+赋能学习,+链接知识,+共创未来)](https://git.io/typing-svg)
-[English Documentation](./README_EN.md) | [中文文档](./README.md)
 
 ![Audit Study Hub](https://img.shields.io/badge/AuditStudyHub-v1.0.0-blue)
 ![Java](https://img.shields.io/badge/Java-17-orange)
@@ -16,6 +15,8 @@
 ![RabbitMQ](https://img.shields.io/badge/RabbitMQ-3.9-FF6600)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 ![Email](https://img.shields.io/badge/Email-15968588744%40163.com-red)
+
+[English Documentation](./README_EN.md) | [中文文档](./README.md)
 
 ## 📚 Project Overview
 
@@ -71,6 +72,7 @@ Audit Study Hub adopts a cloud-native architecture based on microservices, mainl
 | Nacos               | 2.2.0      | Service Discovery & Configuration Management |
 | Docker              | 20.10+     | Containerized Deployment |
 | Prometheus + Grafana | -         | Monitoring Visualization |
+| Exporters           | -          | Metrics Collectors  |
 
 ### Frontend Technology Stack
 
@@ -353,6 +355,58 @@ Access address: http://localhost:3000
 | Redis | localhost:16379 | - | Cache Service |
 
 For more detailed deployment instructions, please refer to the `audit-deployment/Instructions.md` file.
+
+### 7. Monitoring System Configuration
+
+The system has automatically configured a complete monitoring system, including Prometheus, Grafana, and multiple metric exporters:
+
+#### Monitoring Components:
+
+- **Prometheus**: Time series database and monitoring system
+  - Access address: http://localhost:9090
+  - Configuration file: `prometheus.yml`
+
+- **Grafana**: Visualization monitoring dashboard
+  - Access address: http://localhost:13000 (username/password: admin/admin)
+  - After first login, add Prometheus data source and import template dashboards
+
+#### Metric Exporters:
+
+- **MySQL Exporter**: MySQL database metrics collection
+  - Port: 9104
+  - Target: mysql:3306
+
+- **Redis Exporter**: Redis cache metrics collection
+  - Port: 9121
+  - Target: redis:6379
+
+- **Elasticsearch Exporter**: Elasticsearch search engine metrics collection
+  - Port: 9114
+  - Target: elasticsearch:9200
+
+- **RabbitMQ Exporter**: RabbitMQ message queue metrics collection
+  - Port: 9419
+  - Target: rabbitmq:15672
+
+- **Spring Boot Actuator**: Java application metrics collection
+  - Path: /actuator/prometheus
+  - Target: All Spring Boot microservices
+
+#### Configure Custom Dashboards:
+
+1. Login to Grafana (http://localhost:13000)
+2. Configure Prometheus data source:
+   - Configuration -> Data Sources -> Add data source
+   - Select Prometheus, set URL to http://prometheus:9090
+   - Click "Save & Test"
+3. Import example dashboards:
+   - Click "+" button -> Import
+   - You can use the following dashboard IDs:
+     - MySQL: 7362
+     - Redis: 763
+     - Elasticsearch: 266
+     - RabbitMQ: 10991
+     - JVM: 4701
 
 ## 📋 User Guide
 

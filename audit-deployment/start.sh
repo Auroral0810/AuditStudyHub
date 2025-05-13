@@ -127,6 +127,24 @@ docker exec -i mysql sh -c "mysql -uroot -proot nacos_config < /tmp/nacos-mysql.
 echo -e "${CYAN}>>> 验证Nacos数据库...${NC}"
 docker exec -i mysql mysql -uroot -proot -e "SHOW DATABASES; SHOW TABLES FROM nacos_config;" && echo -e "${GREEN}✅ Nacos数据库验证成功${NC}"
 
+# 在启动MySQL之后，添加MySQL导出器
+echo -e "\n${CYAN}${BOLD}>>> 正在启动 MySQL Exporter...${NC}"
+echo -e "${BLUE}MySQL指标收集${NC}"
+
+docker run -d \
+  --name mysql-exporter \
+  --network audit-net \
+  -e DATA_SOURCE_NAME="root:root@(mysql:3306)/" \
+  -p 9104:9104 \
+  prom/mysqld-exporter
+
+if [ $? -eq 0 ]; then
+  echo -e "${GREEN}✅ MySQL Exporter 启动成功!${NC}"
+else
+  echo -e "${RED}❌ MySQL Exporter 启动失败!${NC}"
+  exit 1
+fi
+
 # 2. 启动Redis
 echo -e "\n${CYAN}${BOLD}>>> 正在启动 Redis 服务...${NC}"
 echo -e "${BLUE}内存数据缓存${NC}"
@@ -142,6 +160,24 @@ if [ $? -eq 0 ]; then
   echo -e "${GREEN}✅ Redis 服务启动成功!${NC}"
 else
   echo -e "${RED}❌ Redis 服务启动失败!${NC}"
+  exit 1
+fi
+
+# 在启动Redis之后，添加Redis导出器
+echo -e "\n${CYAN}${BOLD}>>> 正在启动 Redis Exporter...${NC}"
+echo -e "${BLUE}Redis指标收集${NC}"
+
+docker run -d \
+  --name redis-exporter \
+  --network audit-net \
+  -e REDIS_ADDR=redis:6379 \
+  -p 9121:9121 \
+  oliver006/redis_exporter
+
+if [ $? -eq 0 ]; then
+  echo -e "${GREEN}✅ Redis Exporter 启动成功!${NC}"
+else
+  echo -e "${RED}❌ Redis Exporter 启动失败!${NC}"
   exit 1
 fi
 
@@ -163,6 +199,26 @@ if [ $? -eq 0 ]; then
   echo -e "${GREEN}✅ RabbitMQ 服务启动成功!${NC}"
 else
   echo -e "${RED}❌ RabbitMQ 服务启动失败!${NC}"
+  exit 1
+fi
+
+# 在启动RabbitMQ之后，添加RabbitMQ导出器
+echo -e "\n${CYAN}${BOLD}>>> 正在启动 RabbitMQ Exporter...${NC}"
+echo -e "${BLUE}RabbitMQ指标收集${NC}"
+
+docker run -d \
+  --name rabbitmq-exporter \
+  --network audit-net \
+  -e RABBIT_URL="http://rabbitmq:15672" \
+  -e RABBIT_USER="guest" \
+  -e RABBIT_PASSWORD="guest" \
+  -p 9419:9419 \
+  kbudde/rabbitmq-exporter
+
+if [ $? -eq 0 ]; then
+  echo -e "${GREEN}✅ RabbitMQ Exporter 启动成功!${NC}"
+else
+  echo -e "${RED}❌ RabbitMQ Exporter 启动失败!${NC}"
   exit 1
 fi
 
@@ -309,6 +365,25 @@ for i in {1..5}; do
     sleep 10
   fi
 done
+
+# 在启动Elasticsearch之后，添加Elasticsearch导出器
+echo -e "\n${CYAN}${BOLD}>>> 正在启动 Elasticsearch Exporter...${NC}"
+echo -e "${BLUE}Elasticsearch指标收集${NC}"
+
+docker run -d \
+  --name elasticsearch-exporter \
+  --network audit-net \
+  -e ES_URI="http://elasticsearch:9200" \
+  -p 9114:9114 \
+  justwatch/elasticsearch_exporter:1.1.0 \
+  --es.uri="http://elasticsearch:9200"
+
+if [ $? -eq 0 ]; then
+  echo -e "${GREEN}✅ Elasticsearch Exporter 启动成功!${NC}"
+else
+  echo -e "${RED}❌ Elasticsearch Exporter 启动失败!${NC}"
+  exit 1
+fi
 
 # 6. 启动Kibana
 echo -e "\n${CYAN}${BOLD}>>> 正在启动 Kibana 服务...${NC}"

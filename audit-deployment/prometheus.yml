@@ -15,17 +15,18 @@ rule_files:
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ['prometheus:9090']
 
   - job_name: 'spring-boot'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['backend:8080', 'registry:8088', 'config:8888']
+      - targets: ['host.docker.internal:8080', 'host.docker.internal:8088', 'host.docker.internal:8888']
 
+  # 选项1:
   - job_name: 'nacos'
-    metrics_path: '/nacos/actuator/health'
+    metrics_path: '/nacos/actuator/prometheus'
     static_configs:
-      - targets: ['nacos-standalone:8848']
+      - targets: ['host.docker.internal:8848']
 
   - job_name: "mysql"
     static_configs:
@@ -35,19 +36,18 @@ scrape_configs:
 
   - job_name: "redis"
     static_configs:
-      - targets: ["redis-exporter:9121"]
+      - targets: ["host.docker.internal:9121"]
         labels:
           application: "redis"
 
   - job_name: "elasticsearch"
-    metrics_path: "/_prometheus/metrics"
     static_configs:
-      - targets: ["elasticsearch:9200"]
+      - targets: ["host.docker.internal:9114"]
         labels:
           application: "elasticsearch"
 
   - job_name: "rabbitmq"
     static_configs:
-      - targets: ["rabbitmq-exporter:9419"]
+      - targets: ["host.docker.internal:9419"]
         labels:
           application: "rabbitmq" 
