@@ -17,10 +17,7 @@
 ![Email](https://img.shields.io/badge/Email-15968588744%40163.com-red)
 
 [English Documentation](./README_EN.md) | [中文文档](./README.md)
-<<<<<<< HEAD
 
-=======
->>>>>>> 667f930cd637fe68ae116a4937bb1ea8dcc0eff5
 ## 📚 Project Overview
 
 🚀 Audit Study Hub: A higher education resource sharing platform based on microservice architecture, integrating AI search and intelligent recommendations, making it easy to acquire, share, and manage learning resources, creating an efficient campus knowledge ecosystem.
