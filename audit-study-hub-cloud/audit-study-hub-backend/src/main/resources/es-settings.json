@@ -1,0 +1,19 @@
+{
+  "analysis": {
+    "analyzer": {
+      "ik_smart": {
+        "type": "custom",
+        "tokenizer": "ik_smart",
+        "filter": ["lowercase"]
+      },
+      "ik_max_word": {
+        "type": "custom",
+        "tokenizer": "ik_max_word",
+        "filter": ["lowercase"]
+      }
+    }
+  },
+  "index": {
+    "max_result_window": 10000
+  }
+}

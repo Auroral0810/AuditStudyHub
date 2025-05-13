@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>空资源状态</title>
+    <g id="empty-resources" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="background" fill="#F5F7FA" cx="100" cy="100" r="100"></circle>
+        <rect id="folder" fill="#E6E8EB" x="40" y="65" width="120" height="90" rx="8"></rect>
+        <rect id="folder-tab" fill="#D0D3D9" x="40" y="55" width="50" height="20" rx="8"></rect>
+        <g id="documents" transform="translate(55, 85)">
+            <rect id="doc1" fill="#FFFFFF" x="0" y="0" width="40" height="50" rx="4"></rect>
+            <line x1="10" y1="15" x2="30" y2="15" stroke="#D0D3D9" stroke-width="2"></line>
+            <line x1="10" y1="25" x2="30" y2="25" stroke="#D0D3D9" stroke-width="2"></line>
+            <line x1="10" y1="35" x2="30" y2="35" stroke="#D0D3D9" stroke-width="2"></line>
+        </g>
+        <g id="documents2" transform="translate(80, 75)">
+            <rect id="doc2" fill="#FFFFFF" x="0" y="0" width="40" height="50" rx="4"></rect>
+            <line x1="10" y1="15" x2="30" y2="15" stroke="#D0D3D9" stroke-width="2"></line>
+            <line x1="10" y1="25" x2="30" y2="25" stroke="#D0D3D9" stroke-width="2"></line>
+            <line x1="10" y1="35" x2="30" y2="35" stroke="#D0D3D9" stroke-width="2"></line>
+        </g>
+        <g id="documents3" transform="translate(105, 95)">
+            <rect id="doc3" fill="#FFFFFF" x="0" y="0" width="40" height="50" rx="4"></rect>
+            <line x1="10" y1="15" x2="30" y2="15" stroke="#D0D3D9" stroke-width="2"></line>
+            <line x1="10" y1="25" x2="30" y2="25" stroke="#D0D3D9" stroke-width="2"></line>
+            <line x1="10" y1="35" x2="30" y2="35" stroke="#D0D3D9" stroke-width="2"></line>
+        </g>
+        <path id="search-icon" d="M140,55 C148.284,55 155,61.716 155,70 C155,73.807 153.589,77.2738 151.243,79.8512 L164.414,93.0213 C165.195,93.8023 165.195,95.0493 164.414,95.8302 C163.633,96.6112 162.386,96.6112 161.607,95.8302 L148.437,82.6602 C145.859,85.0063 142.393,86.4159 138.586,86.4159 C130.302,86.4159 123.586,79.6999 123.586,71.4159 C123.586,63.1319 130.302,56.4159 138.586,56.4159 C139.061,56.4159 139.533,56.4425 140,56.4949 Z M138.586,59.4159 C131.958,59.4159 126.586,64.7879 126.586,71.4159 C126.586,78.0439 131.958,83.4159 138.586,83.4159 C145.214,83.4159 150.586,78.0439 150.586,71.4159 C150.586,64.7879 145.214,59.4159 138.586,59.4159 Z" fill="#A9AEB8" fill-rule="nonzero"></path>
+        <line id="slash" x1="60" y1="140" x2="140" y2="60" stroke="#F56C6C" stroke-width="3"></line>
+    </g>
+</svg> 

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.auditStudyHub.mapper.TResourceRequestMapper">
+
+    <resultMap id="BaseResultMap" type="com.auditStudyHub.entity.TResourceRequest">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="user_id" property="userId"/>
+        <result column="college_id" property="collegeId"/>
+        <result column="college_name" property="collegeName"/>
+        <result column="major_id" property="majorId"/>
+        <result column="major_name" property="majorName"/>
+        <result column="course_id" property="courseId"/>
+        <result column="course_name" property="courseName"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="category_name" property="categoryName"/>
+        <result column="status" property="status"/>
+        <result column="reply_count" property="replyCount"/>
+        <result column="view_count" property="viewCount"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+    </resultMap>
+
+    <!-- 根据ID查询，包括已逻辑删除的记录 -->
+    <select id="selectByIdWithDeleted" resultMap="BaseResultMap">
+        SELECT * FROM t_resource_request WHERE id = #{id}
+    </select>
+
+    <!-- 更新完整的资源请求信息 -->
+    <update id="updateRequestInfo">
+        UPDATE t_resource_request
+        SET
+          title = #{title},
+          content = #{content},
+          college_id = #{collegeId},
+          college_name = #{collegeName},
+          major_id = #{majorId},
+          major_name = #{majorName},
+          category_id = #{categoryId},
+          category_name = #{categoryName},
+          status = #{status},
+          update_time = #{updateTime}
+        WHERE id = #{id}
+    </update>
+</mapper> 

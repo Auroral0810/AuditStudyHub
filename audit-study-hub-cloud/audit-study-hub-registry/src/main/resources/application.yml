@@ -1,0 +1,48 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: audit-study-hub-registry
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 127.0.0.1:8848
+        namespace: public
+        username: nacos
+        password: nacos
+      config:
+        enabled: false
+  security:
+    user:
+      name: admin
+      password: admin123
+  boot:
+    admin:
+      ui:
+        title: 审计学习中心服务监控平台
+        brand: <img src="assets/img/icon-spring-boot-admin.svg"><span>审计学习中心</span>
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+logging:
+  file:
+    name: logs/${spring.application.name}.log
+  level:
+    root: info
+    com.auditStudyHub: debug 

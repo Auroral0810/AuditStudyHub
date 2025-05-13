@@ -1,0 +1,85 @@
+spring:
+  application:
+    name: audit-study-hub-backend
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER:localhost:8848}
+        namespace: ${NACOS_NAMESPACE:public}
+        group: ${NACOS_GROUP:DEFAULT_GROUP}
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:nacos}
+      config:
+        server-addr: ${NACOS_SERVER:localhost:8848}
+        file-extension: yml
+        namespace: ${NACOS_NAMESPACE:public}
+        group: ${NACOS_GROUP:DEFAULT_GROUP}
+        username: nacos
+        password: nacos
+        # 设置为可选配置，避免因配置不存在而启动失败
+        import-check:
+          enabled: false
+        # 是否快速失败，设置为false则不会因为配置拉取失败而启动失败
+        fail-fast: false
+        # Nacos配置的优先级高于本地配置
+        override-none: false
+        # 优先加载extension-configs中配置，后加载shared-configs中配置
+        # 加载Nacos中的配置文件
+        extension-configs:
+          - data-id: application-backend-${spring.profiles.active}.yml
+            group: ${NACOS_GROUP:DEFAULT_GROUP}
+            refresh: true
+          - data-id: application-backend.yml
+            group: ${NACOS_GROUP:DEFAULT_GROUP}
+            refresh: true
+        # 加载共享配置
+        shared-configs:
+          - data-id: .env.${spring.profiles.active}
+            group: ${NACOS_GROUP:DEFAULT_GROUP}
+            refresh: true
+  elasticsearch:
+    uris: http://localhost:9201
+    socket-timeout: 15s
+    connection-timeout: 15s
+
+# Actuator配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    bus-refresh:
+      enabled: true
+    bus-env:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+# Spring Boot Admin客户端配置
+spring.boot.admin:
+  client:
+    url: http://${ADMIN_HOST:localhost}:${ADMIN_PORT:8088}
+    username: admin
+    password: admin123
+    instance:
+      metadata:
+        user.name: ${ADMIN_USERNAME:admin}
+        user.password: ${ADMIN_PASSWORD:admin123}
+
+# Ribbon负载均衡配置
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 1
+  OkToRetryOnAllOperations: true

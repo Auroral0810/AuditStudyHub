@@ -1,0 +1,138 @@
+{
+  "auth": {
+    "login": "登录",
+    "register": "注册",
+    "codeLogin": "验证码登录",
+    "qrcodeLogin": "二维码登录",
+    "forgetPassword": "忘记密码"
+  },
+  "dashboard": {
+    "title": "概览",
+    "analytics": "分析页",
+    "workspace": "工作台",
+    "ContentCategory": "分类管理"
+  },
+  "content": {
+    "title": "内容管理",
+    "category": {
+      "title": "分类管理"
+    },
+    "college": {
+      "title": "学院管理"
+    },
+    "major": {
+      "title": "专业管理"
+    },
+    "course": {
+      "title": "课程管理"
+    }
+  },
+  "user": {
+    "title": "用户管理",
+    "list": {
+      "title": "用户列表"
+    },
+    "role": {
+      "title": "用户角色"
+    },
+    "records": {
+      "title": "用户活动记录",
+      "downloads": {
+        "title": "下载记录"
+      },
+      "likes": {
+        "title": "点赞记录"
+      },
+      "collections": {
+        "title": "收藏记录"
+      }
+    }
+  },
+  "resource": {
+    "title": "资源管理",
+    "list": {
+      "title": "资源列表"
+    },
+    "audit": {
+      "title": "资源审核"
+    },
+    "comment": {
+      "title": "资源评论"
+    },
+    "request": {
+      "title": "资源请求",
+      "reply": {
+        "title": "请求回复"
+      }
+    }
+  },
+  "statistics": {
+    "title": "统计分析",
+    "hotSearch": {
+      "title": "热门搜索"
+    },
+    "popularSearch": {
+      "title": "流行搜索"
+    },
+    "userBehavior": {
+      "title": "用户行为分析"
+    }
+  },
+  "system": {
+    "title": "系统管理",
+    "site": {
+      "title": "站点管理"
+    },
+    "permission": {
+      "title": "权限管理"
+    },
+    "interface": {
+      "title": "接口管理",
+      "list": {
+        "title": "接口列表"
+      },
+      "group": {
+        "title": "接口分组"
+      },
+      "test": {
+        "title": "接口测试"
+      },
+      "monitor": {
+        "title": "接口监控"
+      }
+    },
+    "dictionary": {
+      "title": "数据字典",
+      "type": {
+        "title": "字典类型"
+      },
+      "data": {
+        "title": "字典数据"
+      }
+    },
+    "logs": {
+      "title": "日志管理",
+      "login": {
+        "title": "登录日志"
+      },
+      "operation": {
+        "title": "操作日志"
+      },
+      "system": {
+        "title": "系统日志"
+      },
+      "exception": {
+        "title": "异常日志"
+      }
+    },
+    "scheduler": {
+      "title": "定时任务",
+      "jobs": {
+        "title": "任务列表"
+      },
+      "logs": {
+        "title": "执行日志"
+      }
+    }
+  }
+}

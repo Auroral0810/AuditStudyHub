@@ -1,0 +1,139 @@
+# 前端 Vue 项目忽略文件
+# 依赖包
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# 构建输出
+/dist
+/build
+
+# 本地环境文件
+.env
+.env.*
+!.env.example
+
+# 编辑器目录和文件
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 后端 SpringBoot 项目忽略文件
+# 编译输出
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Maven/Gradle
+.mvn/
+mvnw
+mvnw.cmd
+.gradle/
+gradle/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 配置文件 - 排除实际配置但保留示例
+application-*.yml
+application-*.properties
+bootstrap-*.yml
+bootstrap-*.properties
+!application-example.yml
+!bootstrap-example.yml
+
+# 数据库相关文件
+**/mysql/data/
+**/db/data/
+
+# Nacos相关
+**/nacos/data/
+**/nacos/logs/
+**/nacos/work/
+**/nacos_config/
+**/nacos_naming/
+**/nacos-mysql/
+**/nacos/conf/*.properties
+**/nacos/conf/*.conf
+# 但保留示例配置
+!**/nacos/conf/*.example.properties
+!**/nacos/conf/*.example.conf
+
+# Docker相关 - 保留主要配置但排除敏感版本
+**/docker/volumes/
+**/.docker/
+docker-compose.override.yml
+docker-compose.dev.yml
+docker-compose.prod.yml
+!docker-compose.yml
+!docker-compose.example.yml
+
+# Elasticsearch相关
+**/elasticsearch/data/
+**/es/data/
+**/elasticsearch/logs/
+**/es/logs/
+
+# RabbitMQ相关
+**/rabbitmq/data/
+**/rabbitmq/logs/
+**/rabbitmq/mnesia/
+
+# Kubernetes相关 - 排除敏感配置
+.kube/
+**/k8s/secrets/
+kubeconfig
+*.kubeconfig
+*-kubeconfig.yaml
+# 保留示例
+!**/k8s/example/
+
+# Grafana相关
+**/grafana/data/
+**/grafana/provisioning/dashboards/custom/
+**/grafana/provisioning/datasources/custom/
+# 保留示例配置
+!**/grafana/provisioning/example/
+
+# Prometheus相关
+**/prometheus/data/
+# 保留示例配置
+!**/prometheus/config/*.example.yml
+
+# 所有敏感文件和目录
+**/*.pem
+**/*.key
+**/*.keystore
+**/*.truststore
+**/*.jks
+**/*.p12
+**/secrets/
+**/credentials/
+
+# 所有包含密钥的配置
+**/application-backend.yml
+**/application-backend-dev.yml
+**/application-backend-prod.yml
+**/.env.dev
+**/.env.prod
+
+# 但允许示例文件
+!**/example-application-backend.yml
+!**/.env.example

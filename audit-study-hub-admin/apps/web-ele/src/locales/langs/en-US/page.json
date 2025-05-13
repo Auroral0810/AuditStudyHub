@@ -1,0 +1,138 @@
+{
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "codeLogin": "Code Login",
+    "qrcodeLogin": "Qr Code Login",
+    "forgetPassword": "Forget Password"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "analytics": "Analytics",
+    "workspace": "Workspace",
+    "ContentCategory": "Content Categories"
+  },
+  "content": {
+    "title": "Content Management",
+    "category": {
+      "title": "Category Management"
+    },
+    "college": {
+      "title": "College Management"
+    },
+    "major": {
+      "title": "Major Management"
+    },
+    "course": {
+      "title": "Course Management"
+    }
+  },
+  "user": {
+    "title": "User Management",
+    "list": {
+      "title": "User List"
+    },
+    "role": {
+      "title": "User Role"
+    },
+    "records": {
+      "title": "User Activities",
+      "downloads": {
+        "title": "Download Records"
+      },
+      "likes": {
+        "title": "Like Records"
+      },
+      "collections": {
+        "title": "Collection Records"
+      }
+    }
+  },
+  "resource": {
+    "title": "Resource Management",
+    "list": {
+      "title": "Resource List"
+    },
+    "audit": {
+      "title": "Resource Audit"
+    },
+    "comment": {
+      "title": "Resource Comments"
+    },
+    "request": {
+      "title": "Resource Requests",
+      "reply": {
+        "title": "Request Replies"
+      }
+    }
+  },
+  "statistics": {
+    "title": "Statistics",
+    "hotSearch": {
+      "title": "Hot Searches"
+    },
+    "popularSearch": {
+      "title": "Popular Searches"
+    },
+    "userBehavior": {
+      "title": "User Behavior Analytics"
+    }
+  },
+  "system": {
+    "title": "System Management",
+    "site": {
+      "title": "Site Management"
+    },
+    "permission": {
+      "title": "Permission Management"
+    },
+    "interface": {
+      "title": "API Management",
+      "list": {
+        "title": "API List"
+      },
+      "group": {
+        "title": "API Groups"
+      },
+      "test": {
+        "title": "API Testing"
+      },
+      "monitor": {
+        "title": "API Monitoring"
+      }
+    },
+    "dictionary": {
+      "title": "Data Dictionary",
+      "type": {
+        "title": "Dictionary Types"
+      },
+      "data": {
+        "title": "Dictionary Data"
+      }
+    },
+    "logs": {
+      "title": "Log Management",
+      "login": {
+        "title": "Login Logs"
+      },
+      "operation": {
+        "title": "Operation Logs"
+      },
+      "system": {
+        "title": "System Logs"
+      },
+      "exception": {
+        "title": "Exception Logs"
+      }
+    },
+    "scheduler": {
+      "title": "Task Scheduler",
+      "jobs": {
+        "title": "Job List"
+      },
+      "logs": {
+        "title": "Execution Logs"
+      }
+    }
+  }
+}
