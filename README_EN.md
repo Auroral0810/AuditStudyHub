@@ -1,6 +1,5 @@
 ![Header](./images/github-header-image.png)
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&width=600&lines=📚+Empowering+Learning,+Connecting+Knowledge.;📚+赋能学习,+链接知识,+共创未来)](https://git.io/typing-svg)
-[English Documentation](./README_EN.md) | [中文文档](./README.md)
 
 ![Audit Study Hub](https://img.shields.io/badge/AuditStudyHub-v1.0.0-blue)
 ![Java](https://img.shields.io/badge/Java-17-orange)
@@ -17,6 +16,7 @@
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 ![Email](https://img.shields.io/badge/Email-15968588744%40163.com-red)
 
+[English Documentation](./README_EN.md) | [中文文档](./README.md)
 ## 📚 Project Overview
 
 🚀 Audit Study Hub: A higher education resource sharing platform based on microservice architecture, integrating AI search and intelligent recommendations, making it easy to acquire, share, and manage learning resources, creating an efficient campus knowledge ecosystem.
