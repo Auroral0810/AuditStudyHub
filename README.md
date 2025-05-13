@@ -17,6 +17,10 @@
 ![Email](https://img.shields.io/badge/Email-15968588744%40163.com-red)
 
 [English Documentation](./README_EN.md) | [中文文档](./README.md)
+<<<<<<< HEAD
+=======
+## 📚 项目概述
+>>>>>>> 667f930cd637fe68ae116a4937bb1ea8dcc0eff5
 
 ## 📚 项目概述
 
